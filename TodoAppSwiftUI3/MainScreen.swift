@@ -38,34 +38,34 @@ struct MainScreen: View {
                 NavigationView {
                     ZStack {
                         ScrollView {
-                            VStack {
-                                HStack {
-                                    Text("Categories")
-                                        .font(.body.smallCaps())
-                                        .foregroundColor(.secondary)
-                                    Spacer()
-                                }
-                                .padding(.horizontal)
-                                
-                                
-                                ScrollView(.horizontal, showsIndicators: false) {
-                                    LazyHStack(spacing: 20) {
-                                        ForEach(categories) {category in
-                                            CategoryCards(category: category.category,
-                                                          color: category.color,
-                                                          numberOfTasks: getTotalTasksNumber(category: category),
-                                                          tasksDone: getDoneTasksNumber(category: category))
-                                        }
-                                        .padding(.bottom, 30)
-                                        
-                                    }
-                                    .padding(.leading, 20)
-                                    .padding(.trailing, 30)
-                                }
-                                .frame(height: 190)
-                                
-                            }
-                            .padding(.top, 30)
+//                            VStack {
+//                                HStack {
+//                                    Text("Categories")
+//                                        .font(.body.smallCaps())
+//                                        .foregroundColor(.secondary)
+//                                    Spacer()
+//                                }
+//                                .padding(.horizontal)
+//
+//
+//                                ScrollView(.horizontal, showsIndicators: false) {
+//                                    LazyHStack(spacing: 20) {
+//                                        ForEach(categories) {category in
+//                                            CategoryCards(category: category.category,
+//                                                          color: category.color,
+//                                                          numberOfTasks: getTotalTasksNumber(category: category),
+//                                                          tasksDone: getDoneTasksNumber(category: category))
+//                                        }
+//                                        .padding(.bottom, 30)
+//
+//                                    }
+//                                    .padding(.leading, 20)
+//                                    .padding(.trailing, 30)
+//                                }
+//                                .frame(height: 190)
+//
+//                            }
+//                            .padding(.top, 30)
                             
                             // MARK: Actual list of todo items
                             VStack {
@@ -155,7 +155,7 @@ struct MainScreen: View {
                             .matchedGeometryEffect(id: "button", in: namespace)
                         }
                     }
-                    .navigationTitle(userName.isEmpty ? "Hi there!" : "What's up, \(userName)!")
+                    .navigationTitle(userName.isEmpty ? "Retrievl" : "What's up, \(userName)!")
                     
                     // MARK: Navigation bar buttons to open different menus
                     .navigationBarItems(

@@ -13,7 +13,7 @@ struct NewItem: View {
     
     var namespace: Namespace.ID
     
-    @State private var category = "Business"
+    @State private var category = "Work"
     @State private var dueDate = Date()
     @State private var toDoText = ""
     
@@ -101,7 +101,7 @@ struct NewItem: View {
                     
                     
                     Button(role: .none, action: {
-                        ViewContextMethods.addItem(context: viewContext, dueDate: dueDate, toDoText: toDoText, category: category)
+                        ViewContextMethods.addItem(context: viewContext, dueDate: dueDate, toDoText: toDoText, category: category, spotlighted: false, waiting: false, repeatUnit: nil, repeatPeriod: nil, repeatEnd: nil, details: nil, workingOn: false, deleted: false, checkList: nil)
                         withAnimation {
                             newItemOpen = false
                         }
@@ -112,9 +112,8 @@ struct NewItem: View {
                         }
                         .frame(maxWidth: .infinity)
                     })
-                        .buttonStyle(BorderedButtonStyle(shape: .roundedRectangle))
+                        .buttonStyle(BorderedButtonStyle())
                         .tint(.indigo)
-                        .controlProminence(.increased)
                         .controlSize(.large)
                         .shadow(color: .black.opacity(0.1), radius: 20, x: 5, y: 10)
                         .shadow(color: .black.opacity(0.1), radius: 1, x: 1, y: 1)

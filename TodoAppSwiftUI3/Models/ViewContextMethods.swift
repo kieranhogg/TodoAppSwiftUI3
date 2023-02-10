@@ -10,12 +10,27 @@ import CoreData
 import SwiftUI
 
 struct ViewContextMethods {
-
+    enum RepeatUnit {
+        case hours
+        case days
+        case weeks
+        case months
+        case years
+    }
     static func addItem(
         context: NSManagedObjectContext,
-        dueDate: Date,
+        dueDate: Date?,
         toDoText: String,
-        category: String
+        category: String,
+        spotlighted: Bool,
+        waiting: Bool,
+        repeatUnit: RepeatUnit?,
+        repeatPeriod: Int?,
+        repeatEnd: Date? = nil,
+        details: String?,
+        workingOn: Bool,
+        deleted: Bool,
+        checklist: Int?
     ) {
         withAnimation {
             let newItem = Item(context: context)
@@ -24,6 +39,15 @@ struct ViewContextMethods {
             newItem.toDoText = toDoText
             newItem.isDone = false
             newItem.category = category
+            newItem.spotlighted = false
+            newItem.waiting = false
+            newItem.repeatUnit = nil
+            newItem.repeatPeriod = nil
+            newItem.repeatEnd = nil
+            newItem.details = nil
+            newItem.workingOn = false
+            newItem.deleted = false
+            newItem.checklist = nil
             
             do {
                 try context.save()

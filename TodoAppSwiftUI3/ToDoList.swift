@@ -79,8 +79,8 @@ struct ToDoList: View {
                 //await store.loadStats()
                 print("refreshed")
             }
-            .searchable("Search in history", text: $searchQuery, placement: .automatic)
-            .navigationTitle("All todo items")
+            .searchable(text: .constant("Search in history"))
+            //FIXME.navigationTitle(.constant("All todo items"))
             
         }
     }
